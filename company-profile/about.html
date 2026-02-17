@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - PT Multinational Logistics Indonesia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --primary-dark: #0c2340;
+            --accent: #f59e0b;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 25px 80px rgba(0, 0, 0, 0.12);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-white);
+        }
+
+        header {
+            background: var(--bg-white);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after { width: 100%; }
+        nav a:hover { color: var(--primary); }
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(30, 58, 138, 0.4);
+        }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            background: var(--bg-light);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .breadcrumb-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover { color: var(--primary-light); }
+
+        /* PAGE HERO */
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+        }
+
+        .page-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* MAIN CONTENT */
+        .content-section {
+            padding: 5rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 5rem;
+        }
+
+        .content-text h2 {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+
+        .content-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .content-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* VALUES GRID */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .value-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            border-top: 4px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .value-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* TIMELINE */
+        .timeline-section {
+            background: var(--bg-light);
+            padding: 5rem 2rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 100%);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            width: 45%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-left: 0;
+            text-align: right;
+            padding-right: 55px;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: 55%;
+            text-align: left;
+            padding-left: 55px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -74px;
+            left: auto;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -74px;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+        }
+
+        .timeline-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-section a, .footer-section p {
+            display: block;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover { color: var(--accent); }
+
+        .footer-divider {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; }
+            .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { 
+                margin-left: 0;
+                padding-left: 70px;
+                padding-right: 0;
+                text-align: left;
+            }
+            .timeline-item::before { left: 0; }
+            .page-hero h1 { font-size: 2rem; }
+            .content-text h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">🌍 MULTINATIONAL LOGISTICS</a>
+            <nav>
+                <a href="about.html">Tentang</a>
+                <a href="services.html">Layanan</a>
+                <a href="team.html">Tim</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html" class="cta-btn">Hubungi Kami</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="index.html">Home</a> / <span>Tentang Kami</span>
+        </div>
+    </div>
+
+    <section class="page-hero">
+        <h1>Tentang PT Multinational Logistics</h1>
+        <p>Perjalanan kami dalam menciptakan solusi logistik terdepan di Asia Tenggara dan beyond</p>
+    </section>
+
+    <section class="content-section">
+        <div class="section-container">
+            <div class="content-grid">
+                <div class="content-text">
+                    <h2>Siapa Kami</h2>
+                    <p>PT Multinational Logistics adalah perusahaan logistik terkemuka yang berkomitmen untuk menjadi solusi logistik unggulan di pasar global. Dengan pengalaman lebih dari 15 tahun, kami telah membangun reputasi solid dalam menyelenggarakan supply chain dan logistics services dengan standar internasional.</p>
+                    <p>Kami melayani lebih dari 50,000 pengiriman per hari ke 35+ negara dengan jaringan distribusi yang tersebar luas. Tim profesional kami yang berpengalaman siap memberikan solusi logistik yang disesuaikan dengan kebutuhan spesifik setiap klien.</p>
+                    <p>Dengan teknologi terdepan, inovasi berkelanjutan, dan komitmen terhadap excellence, kami terus berkembang menjadi partner logistik pilihan bagi ribuan perusahaan global.</p>
+                </div>
+                <div class="content-image">📦</div>
+            </div>
+
+            <h2 style="font-size: 2.2rem; margin-bottom: 3rem; text-align: center; color: var(--text-dark); font-weight: 800;">Nilai & Budaya Kami</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">💼</div>
+                    <h3>Profesionalisme</h3>
+                    <p>Kami mengutamakan integritas, transparansi, dan akuntabilitas dalam setiap aspek bisnis untuk membangun kepercayaan jangka panjang.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🎯</div>
+                    <h3>Keunggulan</h3>
+                    <p>Komitmen kami terhadap kualitas tertinggi mendorong kami untuk terus berinovasi dan melampaui ekspektasi klien.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Kemitraan</h3>
+                    <p>Kami percaya pada hubungan kolaboratif yang saling menguntungkan dengan klien, mitra, dan komunitas lokal.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🌱</div>
+                    <h3>Keberlanjutan</h3>
+                    <p>Kami berkomitmen pada praktik bisnis ramah lingkungan dan tanggung jawab sosial untuk generasi mendatang.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3>Inovasi</h3>
+                    <p>Investasi berkelanjutan dalam teknologi dan SDM untuk menciptakan solusi logistics yang terdepan dan efisien.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3>Pertumbuhan</h3>
+                    <p>Kami fokus pada pertumbuhan berkelanjutan yang menguntungkan semua stakeholder dan memperkuat posisi pasar kami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline-section">
+        <div class="section-container">
+            <h2 style="font-size: 2.2rem; margin-bottom: 4rem; text-align: center; color: var(--text-dark); font-weight: 800;">Perjalanan Kami</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010</div>
+                        <div class="timeline-title">Didirikan</div>
+                        <div class="timeline-description">PT Multinational Logistics didirikan dengan visi menjadi pemimpin logistik di Asia Tenggara.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2012</div>
+                        <div class="timeline-title">Ekspansi Regional</div>
+                        <div class="timeline-description">Membuka kantor dan distribution center di 5 negara Asia Tenggara.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2015</div>
+                        <div class="timeline-title">Sertifikasi Internasional</div>
+                        <div class="timeline-description">Meraih sertifikasi ISO 9001, IATF 16949, dan compliance regulasi internasional lainnya.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-title">Teknologi AI & Blockchain</div>
+                        <div class="timeline-description">Meluncurkan platform logistik berbasis AI dengan fitur real-time tracking dan predictive analytics.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-title">Global Expansion</div>
+                        <div class="timeline-description">Memperluas operasi ke 35+ negara dengan 50+ distribution center di seluruh dunia.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-title">Inovasi Berkelanjutan</div>
+                        <div class="timeline-description">Meluncurkan solusi sustainable logistics dan carbon-neutral delivery options untuk klien.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>PT Multinational Logistics</h4>
+                    <p>Solusi logistik global dengan standar internasional</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navigasi</h4>
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Layanan</a>
+                    <a href="team.html">Tim</a>
+                    <a href="portfolio.html">Portfolio</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Layanan</h4>
+                    <a href="services.html">Freight Forwarding</a>
+                    <a href="services.html">Warehousing</a>
+                    <a href="services.html">Supply Chain</a>
+                    <a href="services.html">Customs</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontak</h4>
+                    <p>📍 Jakarta, Indonesia</p>
+                    <p>📞 +62 21 XXXX XXXX</p>
+                    <p>📧 contact@multinationallogistics.com</p>
+                </div>
+            </div>
+            <div class="footer-divider">
+                <p>&copy; 2026 PT Multinational Logistics Indonesia. Semua hak dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontraktor Alat Berat - Sewa & Operasional Excavator, Dozer, Loader</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #e4e4e7;
+            background: #09090b;
+        }
+
+        header {
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            border-bottom: 1px solid #27272a;
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fbbf24;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            margin-left: 2.5rem;
+            text-decoration: none;
+            color: #a1a1a6;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #fbbf24;
+        }
+
+        .hero {
+            padding: 12rem 0;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(ellipse at top, rgba(251, 191, 36, 0.1) 0%, transparent 80%);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #a1a1a6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: #09090b;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s;
+            margin: 0 0.5rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(251, 191, 36, 0.3);
+        }
+
+        .cta-btn-outline {
+            background: transparent;
+            color: #fbbf24;
+            border: 2px solid #fbbf24;
+        }
+
+        .cta-btn-outline:hover {
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        .section {
+            padding: 6rem 0;
+            border-top: 1px solid #27272a;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            color: #fafafa;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #a1a1a6;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid #27272a;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #fbbf24;
+            background: linear-gradient(135deg, #27272a 0%, #3f3f46 100%);
+            box-shadow: 0 10px 40px rgba(251, 191, 36, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            color: #fafafa;
+        }
+
+        .feature-card p {
+            color: #a1a1a6;
+            line-height: 1.7;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #a1a1a6;
+            font-size: 0.95rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+            border: 1px solid #27272a;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .cta-section h3 {
+            font-size: 1.8rem;
+            color: #fafafa;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background: #09090b;
+            color: #a1a1a6;
+            padding: 3rem 0 1.5rem;
+            text-align: center;
+            border-top: 1px solid #27272a;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">HEAVY EQUIPMENT</div>
+                <nav>
+                    <a href="#features">Armada</a>
+                    <a href="#stats">Performance</a>
+                    <a href="#contact">Kontak</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Heavy Equipment Kontraktor Terpercaya</h1>
+            <p>Sewa alat berat profesional dengan operator berpengalaman dan garansi downtime minimal</p>
+            <a href="#" class="cta-btn">Lihat Armada</a>
+            <a href="#" class="cta-btn cta-btn-outline">Konsultasi Gratis</a>
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <div class="container">
+            <h2 class="section-title">Armada Alat Berat Lengkap</h2>
+            <p class="section-subtitle">Peralatan modern dengan maintenance berkala dan operator profesional</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏗️</div>
+                    <h3>Excavator Hydraulic</h3>
+                    <p>CAT 390, Volvo EC480 dengan bucket 2-3 m³ untuk penggalian dan handling</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Dump Truck</h3>
+                    <p>Hino, Isuzu, dan Volvo dengan kapasitas 10-30 ton untuk transportasi material</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛣️</div>
+                    <h3>Road Roller</h3>
+                    <p>Vibratory roller untuk compaction dan paving dengan presisi tinggi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Concrete Pump</h3>
+                    <p>Concrete line pump dan stationary pump untuk coring hingga 200m</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚒️</div>
+                    <h3>Breaker & Tools</h3>
+                    <p>Hydraulic breaker, jackhammer, dan power tools untuk demolition</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Expert Operators</h3>
+                    <p>Operator bersertifikat dengan pengalaman 10+ tahun di berbagai proyek</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt-section" id="advantages">
+        <div class="container">
+            <h2 class="section-title">Keunggulan Kami</h2>
+            <p class="section-subtitle">Mengapa memilih Heavy Equipment Kontraktor kami</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Perawatan Berkala</h3>
+                    <p>Semua equipment dirawat secara rutin untuk memastikan performa optimal</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏅</div>
+                    <h3>Garansi Peralatan</h3>
+                    <p>Garansi parts dan jaminan kualitas untuk setiap penggunaan</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>On-Time Delivery</h3>
+                    <p>Pengiriman tepat waktu dan setup cepat di lokasi proyek Anda</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Harga Kompetitif</h3>
+                    <p>Paket harga terjangkau dengan tidak mengorbankan kualitas layanan</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📞</div>
+                    <h3>Support 24/7</h3>
+                    <p>Tim teknis siap membantu breakdown dan maintenance kapan pun dibutuhkan</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Asuransi Lengkap</h3>
+                    <p>Semua peralatan tercakup asuransi tanggung jawab dan kerusakan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="stats">
+        <div class="container">
+            <h2 class="section-title">Kepercayaan Dari 500+ Proyek</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Proyek Selesai</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Equipment</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Client Satisfaction</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Response</div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3>Butuh Alat Berat untuk Proyek Anda?</h3>
+                <p style="margin-bottom: 1.5rem; color: #a1a1a6;">Hubungi tim kami untuk penawaran terbaik dan solusi equipment</p>
+                <a href="#" class="cta-btn">Hubungi Sales</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Heavy Equipment Kontraktor. Premium Heavy Machinery Solutions. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiRen Digital Marketing - Solusi Website & Digital Marketing Profesional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0f172a;
+            --primary-dark: #020617;
+            --primary-light: #1e40af;
+            --accent: #ec4899;
+            --accent-light: #f472b6;
+            --accent-secondary: #06b6d4;
+            --text-dark: #ffffff;
+            --text-light: #cbd5e1;
+            --bg-light: #1e293b;
+            --bg-white: #0f172a;
+            --border-color: #334155;
+            --success: #10b981;
+            --shadow: 0 20px 60px rgba(236, 72, 153, 0.15);
+            --shadow-lg: 0 30px 80px rgba(236, 72, 153, 0.2);
+            --transition: all 0.4s cubic-bezier(0.33, 0.66, 0.66, 1);
+        }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-30px) rotate(5deg); opacity: 0.6; }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.5), 0 0 40px rgba(6, 182, 212, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(236, 72, 153, 0.8), 0 0 60px rgba(6, 182, 212, 0.5); }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(236, 72, 153, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+        }
+
+        @keyframes blob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        @keyframes orbitSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Trebuchet MS, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* HEADER & NAVIGATION */
+        header {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(236, 72, 153, 0.1);
+            box-shadow: 0 8px 32px rgba(236, 72, 153, 0.1);
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #ec4899 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: var(--transition);
+            letter-spacing: -0.5px;
+        }
+
+        .logo:hover {
+            filter: brightness(1.2);
+            transform: scale(1.05);
+        }
+
+        .logo span {
+            background: linear-gradient(135deg, #f472b6 0%, #22d3ee 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #ec4899, #06b6d4);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ec4899;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            position: relative;
+            color: white;
+            padding: 8rem 2rem;
+            text-align: center;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle at top left, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at bottom right, rgba(6, 182, 212, 0.15) 0%, transparent 50%);
+            animation: blob 15s infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 20%;
+            right: 5%;
+            animation: floatUp 6s ease-in-out infinite;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #ec4899 50%, #06b6d4 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease infinite;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.35rem;
+            margin-bottom: 2.5rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-highlight {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(6, 182, 212, 0.2));
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            margin: 0 2px;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+            color: white;
+            padding: 1.1rem 2.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 0.7rem;
+            position: relative;
+            overflow: hidden;
+            animation: slideInUp 0.8s ease-out 0.3s both;
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(236, 72, 153, 0.5);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-button.secondary {
+            background: rgba(236, 72, 153, 0.15);
+            border: 2px solid rgba(236, 72, 153, 0.4);
+            color: var(--text-light);
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(236, 72, 153, 0.25);
+            border-color: #ec4899;
+            color: white;
+        }
+
+        .hero-actions {
+            margin-top: 3rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            margin-top: 4rem;
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            animation: slideInUp 0.8s ease-out 0.4s both;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(236, 72, 153, 0.08);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .trust-item:hover {
+            background: rgba(236, 72, 153, 0.15);
+            border-color: rgba(236, 72, 153, 0.4);
+        }
+
+        .trust-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #ec4899, #06b6d4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-alt {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.5) 0%, rgba(30, 41, 59, 0.5) 100%);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(236, 72, 153, 0.1);
+            border-bottom: 1px solid rgba(236, 72, 153, 0.1);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        /* PROBLEMS SECTION */
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .problem-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.5));
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(236, 72, 153, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(236, 72, 153, 0.2), transparent);
+            transition: left 0.8s;
+        }
+
+        .problem-card:hover::before {
+            left: 100%;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(236, 72, 153, 0.5);
+            box-shadow: 0 20px 50px rgba(236, 72, 153, 0.2);
+        }
+
+        .problem-icon {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .problem-card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .problem-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* FEATURES SECTION */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.3), rgba(15, 23, 42, 0.4));
+            padding: 2.5rem;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(6, 182, 212, 0.08);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* PORTFOLIO SECTION */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .portfolio-item {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(236, 72, 153, 0.1);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(236, 72, 153, 0.25);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.3) 0%, rgba(6, 182, 212, 0.3) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        .portfolio-info {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.6));
+            backdrop-filter: blur(10px);
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #ec4899;
+            font-weight: 700;
+        }
+
+        .portfolio-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(6, 182, 212, 0.2));
+            color: #06b6d4;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(6, 182, 212, 0.3);
+        }
+
+        /* TESTIMONIAL SECTION */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.5));
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(236, 72, 153, 0.08);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            backdrop-filter: blur(10px);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(236, 72, 153, 0.4);
+            box-shadow: 0 15px 40px rgba(236, 72, 153, 0.15);
+        }
+
+        .testimonial-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ec4899, #06b6d4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+        }
+
+        .testimonial-details h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .testimonial-details p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .stars {
+            color: #fbbf24;
+            margin-bottom: 0.5rem;
+        }
+
+        /* PRICING SECTION */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.3), rgba(15, 23, 42, 0.4));
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.06);
+            border: 2px solid rgba(236, 72, 153, 0.5);
+            box-shadow: 0 20px 60px rgba(236, 72, 153, 0.25);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(236, 72, 153, 0.4);
+            box-shadow: 0 15px 50px rgba(236, 72, 153, 0.2);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.06) translateY(-8px);
+        }
+
+        .pricing-header {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(6, 182, 212, 0.15));
+            color: var(--text-dark);
+            padding: 2.5rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(236, 72, 153, 0.1);
+        }
+
+        .pricing-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+            color: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .pricing-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+
+        .pricing-price {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ec4899, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pricing-duration {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .pricing-body {
+            padding: 2rem;
+            flex-grow: 1;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0 0.8rem 2rem;
+            position: relative;
+            border-bottom: 1px solid rgba(236, 72, 153, 0.1);
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .pricing-cta {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            border-radius: 10px;
+            transition: var(--transition);
+            font-size: 1rem;
+            box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2);
+        }
+
+        .pricing-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(236, 72, 153, 0.35);
+            filter: brightness(1.1);
+        }
+
+        .pricing-card.featured .pricing-cta {
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+        }
+
+        /* CTA SECTION */
+        .cta-final {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(6, 182, 212, 0.15));
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            overflow: hidden;
+        }
+
+        .cta-final::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-final h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-final p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--text-light);
+            position: relative;
+            z-index: 2;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.95));
+            color: white;
+            padding: 4rem 2rem 1.5rem;
+            border-top: 1px solid rgba(236, 72, 153, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(236, 72, 153, 0.1);
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ec4899, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 800;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: #ec4899;
+            transform: translateX(5px);
+        }
+
+        .contact-info {
+            line-height: 2;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(6, 182, 212, 0.2));
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1.3rem;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+        }
+
+        .social-links a:hover {
+            background: linear-gradient(135deg, #ec4899, #06b6d4);
+            transform: translateY(-5px);
+            border-color: rgba(236, 72, 153, 0.5);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        /* WHATSAPP FLOATING BUTTON */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 99;
+            transition: var(--transition);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: pulse-ring 2s infinite;
+        }
+
+        .whatsapp-button:hover {
+            background: linear-gradient(135deg, #128c7e, #15a785);
+            transform: scale(1.15);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 1.5rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 5rem 1.5rem;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-actions {
+                gap: 0.5rem;
+            }
+
+            .cta-button {
+                padding: 0.9rem 1.8rem;
+                font-size: 0.95rem;
+            }
+
+            .trust-badge {
+                gap: 1rem;
+            }
+
+            .section {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .cta-final h2 {
+                font-size: 2rem;
+            }
+
+            .whatsapp-button {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .cta-button {
+                display: block;
+                width: 100%;
+                margin-bottom: 0.8rem;
+                padding: 0.8rem 1.5rem;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .section-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .problem-card, .feature-card {
+                padding: 1.5rem;
+            }
+
+            .trust-badge {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="#home" class="logo">FiRen<span>Digital</span></a>
+            <nav>
+                <a href="#templates">Portfolio</a>
+                <a href="#solusi">Mengapa Kami</a>
+                <a href="#fitur">Solusi</a>
+                <a href="#harga">Harga</a>
+                <a href="#kontak">Kontak</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION - TEMPLATE SHOWCASE -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <h1>Transformasi Digital Bisnis Anda Dimulai di Sini ✨</h1>
+            <p class="subtitle">Website profesional + Digital Marketing strategy yang terbukti meningkatkan penjualan hingga 300%</p>
+            
+            <div class="hero-actions">
+                <a href="#templates" class="cta-button">🚀 Lihat Portfolio Kami</a>
+                <a href="#harga" class="cta-button secondary">💡 Konsultasi Gratis</a>
+            </div>
+
+
+        </div>
+    </section>
+
+    <!-- TEMPLATE SHOWCASE SECTION -->
+    <section class="section section-alt" id="templates">
+        <div class="container">
+            <h2 class="section-title">Portofolio Website Stunning 🎨</h2>
+            <p class="section-subtitle">Pilih design yang menjadi identitas brand Anda. Setiap template didukung strategi marketing yang powerful.</p>
+            
+            <div class="problems-grid">
+                <div class="problem-card" style="border-left-color: #667eea;">
+                    <div class="problem-icon">1️⃣</div>
+                    <h3>Modern Minimalis</h3>
+                    <p>Design bersih dengan gradien futuristik. Perfect untuk startup & SaaS dengan conversion focused design.</p>
+                    <a href="template-landing-1.html" target="_blank" style="display: inline-block; margin-top: 1rem; background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Preview →</a>
+                </div>
+                <div class="problem-card" style="border-left-color: #f5576c;">
+                    <div class="problem-icon">2️⃣</div>
+                    <h3>Vibrant ColorFul</h3>
+                    <p>Warna cerah dan playful. Ideal untuk creative agency dengan bold visual & smooth animations.</p>
+                    <a href="template-landing-2.html" target="_blank" style="display: inline-block; margin-top: 1rem; background: linear-gradient(135deg, #f5576c, #f093fb); color: white; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Preview →</a>
+                </div>
+                <div class="problem-card" style="border-left-color: #fbbf24;">
+                    <div class="problem-icon">3️⃣</div>
+                    <h3>Elegant Dark</h3>
+                    <p>Dark mode sophisticated with gold accent. Premium & luxury feel untuk high-end services.</p>
+                    <a href="template-landing-3.html" target="_blank" style="display: inline-block; margin-top: 1rem; background: linear-gradient(135deg, #fbbf24, #fcd34d); color: #09090b; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Preview →</a>
+                </div>
+                <div class="problem-card" style="border-left-color: #1e3a8a;">
+                    <div class="problem-icon">4️⃣</div>
+                    <h3>Corporate Enterprise</h3>
+                    <p>Multi-page lengkap dengan 6 halaman. Sophisticated untuk established company dengan full features.</p>
+                    <a href="company-profile/" target="_blank" style="display: inline-block; margin-top: 1rem; background: linear-gradient(135deg, #1e3a8a, #3b82f6); color: white; padding: 0.7rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600;">Preview →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO SECTION -->
+    <section class="section" id="solusi">
+        <div class="container">
+            <h2 class="section-title">Mengapa Memilih FiRen? 💡</h2>
+            <p class="section-subtitle">Kami tidak hanya membuat website, tapi membangun asset digital untuk pertumbuhan bisnis jangka panjang.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card" style="border-top-color: #667eea;">
+                    <div class="feature-icon">✨</div>
+                    <h3>Modern & Clean</h3>
+                    <p>Desain mengikuti tren terkini dengan perhatian detail yang tinggi untuk pengalaman user optimal.</p>
+                </div>
+                <div class="feature-card" style="border-top-color: #667eea;">
+                    <div class="feature-icon">📱</div>
+                    <h3>100% Responsive</h3>
+                    <p>Sempurna di semua ukuran layar dari smartphone, tablet, hingga desktop. Tested di semua devices.</p>
+                </div>
+                <div class="feature-card" style="border-top-color: #667eea;">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast & Optimized</h3>
+                    <p>Kecepatan loading super cepat dengan optimasi image, CSS, dan JavaScript untuk performa maksimal.</p>
+                </div>
+                <div class="feature-card" style="border-top-color: #667eea;">
+                    <div class="feature-icon">🔍</div>
+                    <h3>SEO Friendly</h3>
+                    <p>Semantic HTML, meta tags, dan structured data untuk meningkatkan ranking di search engine.</p>
+                </div>
+                <div class="feature-card" style="border-top-color: #667eea;">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Easy to Customize</h3>
+                    <p>Code yang clean dan terstruktur membuat customisasi menjadi mudah sesuai brand Anda.</p>
+                </div>
+                <div class="feature-card" style="border-top-color: #667eea;">
+                    <div class="feature-icon">📚</div>
+                    <h3>Well Documented</h3>
+                    <p>Dokumentasi lengkap dan komentar kode yang jelas memudahkan untuk development lanjutan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEMPLATE INFO -->
+    <section class="section section-alt" id="fitur">
+        <div class="container">
+            <h2 class="section-title">Solusi Website untuk Setiap Bisnis 🎯</h2>
+            <p class="section-subtitle">Apapun jenis usaha Anda, kami punya solusi yang tepat dengan harga terjangkau & hasil maksimal.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Startup & SaaS</h3>
+                    <p>Landing page yang fokus pada growth hacking dengan CTAs yang powerful untuk meningkatkan sign-ups & conversions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Creative & Agency</h3>
+                    <p>Portfolio website yang stunning untuk showcase karya terbaik Anda & attract klien premium dengan visual yang bombastic.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Corporate & Enterprise</h3>
+                    <p>Solusi website multi-halaman lengkap dengan CMS, client portal, dan sistem manajemen untuk perusahaan besar.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏪</div>
+                    <h3>E-Commerce Store</h3>
+                    <p>Website toko online dengan payment gateway terintegrasi, inventory management, dan strategi SEO untuk sales maksimal.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile First Design</h3>
+                    <p>Semua website kami dioptimasi 100% untuk mobile karena 80% traffic adalah dari smartphone di era sekarang.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3>Marketing Integration</h3>
+                    <p>Website + Digital Marketing strategy yang terintegrasi untuk hasil maksimal & ROI yang terukur untuk bisnis Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="harga">
+        <div class="container">
+            <h2 class="section-title">Paket Harga yang Jelas & Terjangkau</h2>
+            <p class="section-subtitle">Tanpa biaya tersembunyi. Harga apa yang kami sebut, itu yang Anda bayar.</p>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-name">Landing Page</div>
+                        <div class="pricing-price">Rp 1.500.000</div>
+                        <div class="pricing-duration">Sekali bayar</div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li>1 halaman landing page</li>
+                            <li>Mobile responsif</li>
+                            <li>Desain custom sesuai brand</li>
+                            <li>SEO dasar</li>
+                            <li>Gratis hosting 1 tahun</li>
+                            <li>Gratis domain 1 tahun</li>
+                            <li>Contact form & email notifikasi</li>
+                            <li>Gratis revisi 2x</li>
+                            <li>Serah terima 5 hari</li>
+                            <li>Support 30 hari pertama</li>
+                        </ul>
+                        <a href="https://wa.me/6285245854045?text=Saya%20tertarik%20paket%20Landing%20Page" class="pricing-cta">Pesan Sekarang</a>
+                    </div>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <div class="pricing-badge">🌟 PALING LAKU</div>
+                        <div class="pricing-name">Company Profile</div>
+                        <div class="pricing-price">Rp 3.500.000</div>
+                        <div class="pricing-duration">Sekali bayar</div>
+                    </div>
+                    <div class="pricing-body">
+                        <ul class="pricing-features">
+                            <li>5-8 halaman website</li>
+                            <li>Home, About, Produk/Layanan</li>
+                            <li>Portfolio, Blog, Kontak</li>
+                            <li>100% mobile responsif</li>
+                            <li>SEO optimization lengkap</li>
+                            <li>Gratis hosting 1 tahun</li>
+                            <li>Gratis domain 1 tahun</li>
+                            <li>Dashboard edit mudah</li>
+                            <li>Contact form, email, WhatsApp</li>
+                            <li>Gratis revisi 2x</li>
+                            <li>Serah terima 5 hari</li>
+                            <li>Support 60 hari pertama</li>
+                        </ul>
+                        <button class="pricing-cta" onclick="window.location.href='https://wa.me/6285245854045?text=Saya%20tertarik%20paket%20Company%20Profile'">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 2rem; color: var(--text-light);">
+                💡 Belum yakin paket mana yang cocok? Konsultasikan kebutuhan Anda gratis via WhatsApp. Kami bantu pilih paket yang tepat untuk bisnis Anda.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final" id="kontak">
+        <div class="container" style="max-width: 800px;">
+            <h2>Wujudkan Website Impian Bisnis Anda Sekarang 🎉</h2>
+            <p>Jangan biarkan kompetitor Anda unggul. Dengan website profesional + digital marketing strategy, bisnis Anda siap dominate pasar. Konsultasikan rencana Anda GRATIS hari ini.</p>
+            <a href="https://wa.me/6285245854045?text=Halo%20saya%20ingin%20konsultasi%20gratis%20membuat%20website%20untuk%20bisnis%20saya" class="cta-button">
+                📱 Chat WhatsApp - Konsultasi GRATIS 15 Menit
+            </a>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
+                ⏰ Respons dalam 10 menit. Expert team FiRen siap dengarkan visi bisnis Anda & buat solusi terbaik.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>FiRen Digital Marketing</h4>
+                    <p style="color: var(--text-light); margin-top: 0.5rem;">Agensi digital terpercaya yang membantu bisnis Indonesia berkembang pesat di era digital dengan solusi website dan marketing strategy yang terbukti efektif.</p>
+                    <div class="social-links">
+                        <a href="https://www.whatsapp.com" title="WhatsApp">💬</a>
+                        <a href="https://instagram.com" title="Instagram">📷</a>
+                        <a href="https://facebook.com" title="Facebook">👍</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Layanan Kami</h4>
+                    <ul class="footer-links">
+                        <li><a href="#harga">Landing Page</a></li>
+                        <li><a href="#harga">Company Profile</a></li>
+                        <li><a href="#harga">Digital Marketing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Informasi</h4>
+                    <ul class="footer-links">
+                        <li><a href="#templates">Portfolio</a></li>
+                        <li><a href="#solusi">Mengapa Kami</a></li>
+                        <li><a href="#harga">Paket Harga</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hubungi Kami</h4>
+                    <div class="contact-info">
+                        <p>📍 Indonesia (Multi Lokasi)</p>
+                        <p>📞 +62 852-4585-4045</p>
+                        <p>📧 fikriridhohidayat@gmail.com</p>
+                        <p>⏰ 24/7 Support Available</p>
+                        <p style="margin-top: 1rem; font-size: 0.85rem;">💬 Chat WhatsApp untuk respons tercepat</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 FiRen Digital Marketing. Membangun Masa Depan Digital Indonesia. 🚀</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="https://wa.me/6285245854045?text=Halo%20saya%20tertarik%20membuat%20website%20profesional%20untuk%20bisnis%20saya" class="whatsapp-button" title="Chat WhatsApp Konsultasi Gratis"></a>
+
+    <script>
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer untuk animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideInUp 0.8s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section, .problem-card, .feature-card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect on mouse move
+        const hero = document.querySelector('.hero');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            if (hero) {
+                const elements = hero.querySelectorAll('[class*="::after"]');
+                const offset = 30;
+                hero.style.backgroundPosition = `${x * offset}px ${y * offset}px`;
+            }
+        });
+
+        // Counter animation
+        function animateCounter(element, target, duration = 2000) {
+            let current = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+
+        // Hover effects untuk cards
+        document.querySelectorAll('.pricing-card, .feature-card, .problem-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // WhatsApp number configuration
+        const whatsappNumber = '6285245854045';
+    </script>
+</body>
+</html>
