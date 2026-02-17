@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Landing Page 1 - Modern Minimalis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: white;
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        nav a {
+            margin-left: 2.5rem;
+            text-decoration: none;
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0 0.5rem;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #1a202c;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+
+        .alt-section {
+            background: #f7fafc;
+        }
+
+        footer {
+            background: #1a202c;
+            color: white;
+            padding: 3rem 0 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ModernHub</div>
+                <nav>
+                    <a href="#features">Fitur</a>
+                    <a href="#pricing">Harga</a>
+                    <a href="#contact">Kontak</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Solusi Digital Modern untuk Bisnis Anda</h1>
+            <p>Raih kesuksesan dengan teknologi terdepan dan dukungan profesional</p>
+            <a href="#" class="cta-btn">Mulai Sekarang</a>
+            <a href="#" class="cta-btn" style="background: transparent; color: white; border: 2px solid white;">Pelajari Lebih</a>
+        </div>
+    </section>
+
+    <section class="section" id="features">
+        <div class="container">
+            <h2 class="section-title">Fitur Unggulan</h2>
+            <p class="section-subtitle">Kami menyediakan solusi lengkap untuk mengembangkan bisnis Anda</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Super Cepat</h3>
+                    <p>Kecepatan loading yang optimal untuk pengalaman pengguna terbaik</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Aman Terpercaya</h3>
+                    <p>Keamanan data tingkat enterprise dengan enkripsi terkini</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile First</h3>
+                    <p>Responsif sempurna di semua perangkat dari HP hingga desktop</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Mudah Digunakan</h3>
+                    <p>Interface intuitif yang dapat digunakan siapa saja tanpa training</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Analytics Lengkap</h3>
+                    <p>Dashboard analytics real-time untuk tracking performa bisnis</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Scalable</h3>
+                    <p>Infrastruktur scalable yang tumbuh bersama bisnis Anda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section alt-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Paket Harga</h2>
+            <p class="section-subtitle">Pilih paket yang sesuai dengan kebutuhan bisnis Anda</p>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Starter</h3>
+                    <div style="font-size: 2.5rem; color: #2563eb; margin: 1rem 0;">Rp 999K</div>
+                    <p style="margin-bottom: 1.5rem;">Per bulan</p>
+                    <a href="#" class="cta-btn" style="display: block;">Pilih Paket</a>
+                </div>
+                <div class="feature-card" style="border: 2px solid #2563eb;">
+                    <h3>Professional</h3>
+                    <div style="font-size: 2.5rem; color: #2563eb; margin: 1rem 0;">Rp 1.999K</div>
+                    <p style="margin-bottom: 1.5rem;">Per bulan</p>
+                    <a href="#" class="cta-btn" style="display: block;">Pilih Paket</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Enterprise</h3>
+                    <div style="font-size: 2.5rem; color: #2563eb; margin: 1rem 0;">Custom</div>
+                    <p style="margin-bottom: 1.5rem;">Hubungi kami</p>
+                    <a href="#" class="cta-btn" style="display: block;">Hubungi Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 ModernHub. Template Landing Page 1. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+</body>
+</html>
